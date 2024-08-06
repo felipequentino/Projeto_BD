@@ -1,0 +1,66 @@
+
+
+#logo{
+} 
+
+body{
+    background-color: #ebeff5;
+}
+
+.navbar-brand-logo {
+    max-height: 0px; 
+}
+
+#total-orders{
+    background-color: #4cb4c7;
+}
+
+
+#orders-delivered{
+    background-color: #7abecc;
+}
+
+#orders-pending{
+    background-color: #7CD1C0;
+}
+
+
+/* form */
+.flex-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-section {
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    background-color: #3442450c;
+    padding: 1em;
+    border-radius: 5px;
+    width: 70%;
+}
+
+.form-section h6 {
+    font-weight: bold;
+    margin-left: 10px;
+
+}
+
+h5 {
+    margin-left: 15%;
+}
+
+.category-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #F6F6F6;
+}
+
+.form-group {
+    margin: 15px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+}

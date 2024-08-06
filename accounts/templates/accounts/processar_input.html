@@ -1,0 +1,43 @@
+{% extends "accounts/main.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Gerador de relatório Automático</h1>
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="userInput">Insira a transcrição da consulta:</label>
+            <textarea id="userInput" name="user_input" rows="4" cols="50" class="form-control" placeholder="Insira aqui a transcrição..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Gerar relatório</button>
+    </form>
+    {% if output %}
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Resultado:</h2>
+                <div id="output" class="card-text"></div>
+                <button id="save-pdf" class="btn btn-secondary mt-3">Salvar como PDF</button>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById('output').innerHTML = marked.parse(`{{ output|escapejs }}`);
+
+                document.getElementById('save-pdf').addEventListener('click', function() {
+                    const element = document.getElementById('output');
+                    const opt = {
+                        margin:       1,
+                        filename:     'output.pdf',
+                        image:        { type: 'jpeg', quality: 0.98 },
+                        html2canvas:  { scale: 2 },
+                        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+                    };
+                    html2pdf().from(element).set(opt).save();
+                });
+            });
+        </script>
+    {% endif %}
+</div>
+{% endblock %}

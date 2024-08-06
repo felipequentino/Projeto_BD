@@ -1,0 +1,75 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Médico: {{medico.nome}}</h5>
+            <hr>
+            <a class="btn btn-outline-info btn-sm btn-block" href="">Atualizar Médico</a>
+            <a class="btn btn-outline-danger btn-sm btn-block" href="">Remover Médico</a>
+        </div>
+    </div>
+
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Informações de Contato</h5>
+            <hr>
+            <p>Email: {{medico.email}}</p>
+            <p>Número: {{medico.telefone}}</p>
+        </div>
+    </div>
+
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Histórico:</h5>
+            <table>
+                {% for consulta_realizada in consultas_realizadas %}
+                <tr>
+                    <td>{{ consulta_realizada }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <hr>
+            <h1 style="text-align: center;padding: 10px"></h1>
+        </div>
+    </div>
+</div>
+
+<br>
+<div class="row">
+    <div class="col">
+        <div class="card card-body">
+            <form method="get">
+                <a class="btn btn-primary" href="{% url 'adicionar_consulta' medico.id %}">Adicionar Consulta</a>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h3>Consultas</h3>
+            <table class="table table-sm">
+                <tr>
+                    <th>Paciente</th>
+                    <th>Data da Consulta</th>
+                    <th>Status</th>
+                </tr>
+                {% for consulta_ordenada in consultas_ordenadas %}
+                    <tr>
+                        <td>{{ consulta_ordenada.paciente }}</td>
+                        <td>{{ consulta_ordenada.data }}</td>
+                        <td>{{ consulta_ordenada.status }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

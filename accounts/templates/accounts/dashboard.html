@@ -1,0 +1,53 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+{% include 'accounts/status.html' %}
+
+<br>
+
+<div class="row">
+    <div class="col-md-5">
+        <h5>Pacientes:</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" href="">Inserir Paciente</a>
+            <table class="table table-sm">
+                <tr>
+                    <th>Paciente</th>
+                    <th>Telefone</th>
+                </tr>
+                {% for paciente in pacientes %}
+                    <tr>
+                        <td> <a href="{% url 'pacientes' pk_test=paciente.id %}">{{ paciente.nome }}</a></td>
+                        <td>{{ paciente.telefone }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-7">
+        <h5>PRÓXIMAS 5 CONSULTAS</h5>
+        <hr>
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>Paciente</th>
+                    <th>Médico</th>
+                    <th>Data</th>
+                </tr>
+                {% for consulta_agendada_ordem in consultas_agendadas_ordenadas %}
+                    <tr>
+                        <td>{{ consulta_agendada_ordem.paciente }}</td>
+                        <td>{{ consulta_agendada_ordem.medico }}</td>
+                        <td>{{ consulta_agendada_ordem.data }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

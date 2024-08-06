@@ -1,0 +1,84 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h2>Paciente: {{ paciente.nome }}</h2>
+            <hr>
+            <p><strong>Sexo:</strong> {{ paciente.sexo }}</p>
+            <p><strong>Data de Nascimento:</strong> {{ paciente.data_nascimento }}</p>
+            <p><strong>Idade:</strong> {{ idade }}</p>
+            <p><strong>CPF:</strong> {{ paciente.cpf }}</p>
+            <p><strong>Alergias:</strong> Alergias do paciente</p>
+            <p><strong>Diagnósticos ativos:</strong> Diagnósticos do paciente ativos</p>
+            <a class="btn btn-outline-info btn-sm" href="">Atualizar Paciente</a>
+            <a class="btn btn-outline-danger btn-sm" href="">Remover Paciente</a>
+        </div>
+    </div>
+</div>
+
+<br>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h3>Foto do Paciente</h3>
+            <hr>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="https://pequenoprincipe.org.br/wp-content/uploads/2020/07/internamento_cuidados_com_o_paciente-1-1024x683.jpg" class="img-thumbnail" alt="Foto do paciente">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h3>Histórico Médico</h3>
+            <hr>
+            <table class="table table-sm">
+                <tr>
+                    <th>Data</th>
+                    <th>Descrição</th>
+                </tr>
+                {% for historico in historicos %}
+                <tr>
+                    <td>{{ historico.data }}</td>
+                    <td>{{ historico.descricao }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+<br>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h3>Consultas</h3>
+            <hr>
+            <table class="table table-sm">
+                <tr>
+                    <th>Médico</th>
+                    <th>Data da Consulta</th>
+                    <th>Status</th>
+                </tr>
+                {% for consulta in consultas %}
+                <tr>
+                    <td>{{ consulta.medico }}</td>
+                    <td>{{ consulta.data }}</td>
+                    <td>{{ consulta.status }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

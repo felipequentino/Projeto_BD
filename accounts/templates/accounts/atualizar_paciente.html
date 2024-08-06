@@ -1,0 +1,14 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<br>
+<div class="card card-body shadow-sm">
+    <h5 class="card-title">Atualizar Paciente</h5>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary btn-block mt-3">Atualizar</button>
+    </form>
+</div>
+{% endblock %}

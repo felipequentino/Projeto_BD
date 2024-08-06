@@ -1,0 +1,233 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+<div class="card card-body shadow-sm ">
+    <h5 class="card-title">Adicionar Paciente</h5>
+    <br>
+    <form method="post" class="flex-form">
+        {% csrf_token %}
+        <!-- Bloco 1: Informações Pessoais -->
+        <div class="form-section">
+            <h6>Informações Pessoais</h6>
+            <div class="category-section">
+                <div class="form-group">
+                    <label for="{{ form.nome.id_for_label }}">Nome:</label>
+                    {{ form.nome }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.nome_social.id_for_label }}">Nome Social:</label>
+                    {{ form.nome_social }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.nome_mae.id_for_label }}">Nome da Mãe:</label>
+                    {{ form.nome_mae }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.sexo.id_for_label }}">Sexo:</label>
+                    {{ form.sexo }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.genero.id_for_label }}">Gênero:</label>
+                    {{ form.genero }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.data_nascimento.id_for_label }}">Data de Nascimento:</label>
+                    {{ form.data_nascimento }}
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bloco 2: Informações de Nascimento -->
+        <div class="form-section">
+            <h6>Informações de Nascimento</h6>
+            <div class="category-section">
+                <div class="form-group">
+                    <label for="{{ form.raca.id_for_label }}">Raça:</label>
+                    {{ form.raca }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.nacionalidade.id_for_label }}">Nacionalidade:</label>
+                    {{ form.nacionalidade }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.cidade_nascimento.id_for_label }}">Cidade de Nascimento:</label>
+                    {{ form.cidade_nascimento }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.uf_nascimento.id_for_label }}">UF de Nascimento:</label>
+                    {{ form.uf_nascimento }}
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Bloco 3: Informações do Passaporte -->
+        <div class="form-section">
+            <h6>Informações do Passaporte</h6>
+            <p>*Para estrangeiros</p>
+            <div class="category-section">
+                <div class="form-group">
+                    <label for="{{ form.data_naturalizacao.id_for_label }}">Data de Naturalização:</label>
+                    {{ form.data_naturalizacao }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.pais_nascimento.id_for_label }}">País de Nascimento:</label>
+                    {{ form.pais_nascimento }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.numero_passaporte.id_for_label }}">Número do Passaporte:</label>
+                    {{ form.numero_passaporte }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.pais_emissao.id_for_label }}">País de Emissão do Passaporte:</label>
+                    {{ form.pais_emissao }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.data_emissao.id_for_label }}">Data de Emissão do Passaporte:</label>
+                    {{ form.data_emissao }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.data_validade.id_for_label }}">Data de Validade do Passaporte:</label>
+                    {{ form.data_validade }}
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bloco 4: Contato -->
+        <div class="form-section">
+            <h6>Contato</h6>
+            <div class="category-section">
+                <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}">Email:</label>
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.tipo_telefone.id_for_label }}">Tipo de Telefone:</label>
+                    {{ form.tipo_telefone }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.ddd.id_for_label }}">DDD:</label>
+                    {{ form.ddd }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.telefone.id_for_label }}">Telefone:</label>
+                    {{ form.telefone }}
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bloco 5: Endereço -->
+        <div class="form-section">
+            <h6>Endereço</h6>
+            <div class="category-section">
+                <div class="form-group">
+                    <label for="{{ form.tipo_logradouro.id_for_label }}">Tipo de Logradouro:</label>
+                    {{ form.tipo_logradouro }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.nome_logradouro.id_for_label }}">Nome do Logradouro:</label>
+                    {{ form.nome_logradouro }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.numero_logradouro.id_for_label }}">Número do Logradouro:</label>
+                    {{ form.numero_logradouro }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.complemento_logradouro.id_for_label }}">Complemento do Logradouro:</label>
+                    {{ form.complemento_logradouro }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.bairro.id_for_label }}">Bairro:</label>
+                    {{ form.bairro }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.cidade.id_for_label }}">Cidade:</label>
+                    {{ form.cidade }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.uf.id_for_label }}">UF:</label>
+                    {{ form.uf }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.pais.id_for_label }}">País:</label>
+                    {{ form.pais }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.cep.id_for_label }}">CEP:</label>
+                    {{ form.cep }}
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bloco 6: Identificação -->
+        <div class="form-section">
+            <h6>Identificação</h6>
+            <div class="category-section">
+                <div class="form-group">
+                    <label for="{{ form.cpf.id_for_label }}">CPF:</label>
+                    {{ form.cpf }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.numero_identidade.id_for_label }}">Número da Identidade:</label>
+                    {{ form.numero_identidade }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.uf_identidade.id_for_label }}">UF da Identidade:</label>
+                    {{ form.uf_identidade }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.orgao_emissor_identidade.id_for_label }}">Órgão Emissor da Identidade:</label>
+                    {{ form.orgao_emissor_identidade }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.data_emissao_identidade.id_for_label }}">Data de Emissão da Identidade:</label>
+                    {{ form.data_emissao_identidade }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.numero_cns.id_for_label }}">Número do CNS:</label>
+                    {{ form.numero_cns }}
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bloco 7: Dados dos Representantes Legais -->
+        <div class="form-section">
+            <h6>Dados dos Representantes Legais</h6>
+            <div class="category-section">
+                <div class="form-group">
+                    <label for="{{ form.nome_representante_legal.id_for_label }}">Nome do Representante Legal:</label>
+                    {{ form.nome_representante_legal }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.relacionamento_representante_legal.id_for_label }}">Relacionamento com o
+                        Representante Legal:</label>
+                    {{ form.relacionamento_representante_legal }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.cpf_representante_legal.id_for_label }}">CPF do Representante Legal:</label>
+                    {{ form.cpf_representante_legal }}
+                </div>
+            </div>
+
+        </div>
+        <div class="form-section">
+            <div class="category-section">
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    {{form.descricao}}
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+{% endblock %}

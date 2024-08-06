@@ -1,0 +1,14 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<br>
+<div class="card card-body">
+    <h5>Remover Paciente</h5>
+    <hr>
+    <p>Tem certeza que deseja remover {{ paciente.nome }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger btn-block">Remover</button>
+    </form>
+</div>
+{% endblock %}

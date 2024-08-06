@@ -1,0 +1,52 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<br>
+<div class="card card-body shadow-sm ">
+    <h5 class="card-title">Adicionar Consulta</h5>
+    <br>
+    <form method="post" class="flex-form">
+        {% csrf_token %}
+        <!-- Bloco 1: Informações da Consulta -->
+        <div class="form-section">
+            <h6>Informações da Consulta</h6>
+            <div class="category-section">
+                <div class="form-group">
+                    <label for="{{ form.paciente.id_for_label }}">Paciente:</label>
+                    {{ form.paciente }}
+                </div>
+                <div class="form-group">
+                    <label>Médico:</label>
+                    {{ medico.nome }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.data.id_for_label }}">Data:</label>
+                    {{ form.data }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.hora.id_for_label }}">Hora:</label>
+                    {{ form.hora }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.status.id_for_label }}">Status:</label>
+                    {{ form.status }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.descricao.id_for_label }}">Descrição:</label>
+                    {{ form.descricao }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.duracao_estimada.id_for_label }}">Duração Estimada:</label>
+                    {{ form.duracao_estimada }}
+                </div>
+                <div class="form-group">
+                    <label>Especialidade do Médico:</label>
+                    {{ medico.especialidade }}
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="medico_id" value="{{ medico_id }}">
+        <button type="submit" class="btn btn-success btn-block mt-3">Adicionar</button>
+    </form>
+</div>
+{% endblock %}
