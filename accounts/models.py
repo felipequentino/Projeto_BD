@@ -23,11 +23,8 @@ class Paciente(models.Model):
     email = models.EmailField(max_length=200, null=True)
     ddd = models.CharField(max_length=3, null=True)
     telefone = models.CharField(max_length=200, null=True)
-    uf = models.CharField(max_length=2, null=True)
-    pais = models.CharField(max_length=50, null=True)
     cep = models.CharField(max_length=10, null=True)
     cpf = models.CharField(max_length=11, null=True)
-    
     data_criacao = models.DateTimeField(auto_now_add=True, null=True)
     descricao = models.TextField(null=True)
 
